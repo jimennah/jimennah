@@ -66,7 +66,7 @@ def climb_the_mountain_range():
                 break
             elif choice == 2:
                 print_pause("\nYou circle around the mountain range, taking in the stunning views along the way.")
-score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
+                score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
                 break
             else:
                 print_pause("Invalid choice, please try again.")
@@ -85,7 +85,8 @@ def visit_the_village():
                 score += random.randint(30, 40) # Add a random score bonus between 30-40 points
                 break
             elif choice == 2:
-                print_pause("\nYou bid farewellto the villagers and setoff on your journey once again.")
+                print_pause("\nYoucontinue on your journey, eager to see what lies ahead.")
+                score -= random.randint(10, 20) # Add a random score penalty between 10-20 points
                 break
             else:
                 print_pause("Invalid choice, please try again.")
@@ -93,13 +94,19 @@ def visit_the_village():
             print_pause("Invalid input, please enter a number (1 or 2).")
 
 def play_game():
-    global score
-    score = 0
-    print_pause("Welcome to Adventure Game, where you will embark on an exciting journey full of twists and turns!")
-    print_pause("Your goal is to reach the end of the game with the highest score possible.")
-    fork_in_the_road()
-    follow_the_stream()
-    climb_the_mountain_range()
-    visit_the_village()
-    print_pause(f"\nCongratulations on completing the game with a final score of {score} points!")
-    print_pause("Thank you for playing Adventure Game!")
+    while True:
+        global score
+        score = 0
+        print_pause("Welcome to Adventure Game, where you will embark on an exciting journey full of twists and turns!")
+        print_pause("Your goal is to reach the end of the game with the highest score possible.")
+        fork_in_the_road()
+        follow_the_stream()
+        climb_the_mountain_range()
+        visit_the_village()
+        print_pause(f"\nCongratulations on completing the game with a final score of {score} points!")
+        play_again = input("Do you want to play again? (y/n) ")
+        if play_again.lower() != "y":
+            print_pause("Thank you for playing Adventure Game!")
+            break
+
+play_game()
