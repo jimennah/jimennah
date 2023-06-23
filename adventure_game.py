@@ -1,151 +1,105 @@
 import time
 import random
 
+def print_pause(message):
+    print(message)
+    time.sleep(2)
 
 def fork_in_the_road():
     global score
-    print("You find yourself standing at a fork in the road.")
-    time.sleep(2)
-    print("To the left, the path appears to lead through a dense forest, while to the right, the path winds its way up a steep hill.")
-    time.sleep(2)
+    print_pause("\nYou find yourself standing at a fork in the road.")
+    print_pause("To the left, the path appears to lead through a dense forest, while to the right, the path winds its way up a steep hill.")
     while True:
         choice = input("Which direction will you choose? (1) Go left or (2) Go right? ")
-        if choice == "1":
-            print("No matter which option you choose, you find yourself walking for what seems like hours.")
-            time.sleep(2)
-            print("The forest grows thicker and darker.")
-            score += random.randint(5, 15) # Add a random score bonus between 5-15 points
-            break
-        elif choice == "2":
-            print("No matter which option you choose, you find yourself walking for what seems like hours.")
-            time.sleep(2)
-            print("The hill becomes steeper and more treacherous.")
-            score -= random.randint(5, 15) # Add a random score penalty between 5-15 points
-            break
+        if choice.isdigit():
+            choice = int(choice)
+            if choice == 1:
+                print_pause("\nNo matter which option you choose, you find yourself walking for what seems like hours.")
+                print_pause("The forest grows thicker and darker.")
+                score += random.randint(5, 15) # Add a random score bonus between 5-15 points
+                break
+            elif choice == 2:
+                print_pause("\nNo matter which option you choose, you find yourself walking for what seems like hours.")
+                print_pause("The hill becomes steeper and more treacherous.")
+                score -= random.randint(5, 15) # Add a random score penalty between 5-15 points
+                break
+            else:
+                print_pause("Invalid choice, please try again.")
         else:
-            print("Invalid choice, please try again.")
+            print_pause("Invalid input, please enter a number (1 or 2).")
 
 def follow_the_stream():
     global score
-    print("No matter which option you choose, you eventually come across a clearing in the woods.")
-    time.sleep(2)
-    print("In the center of the clearing, you see a small, weather-beaten house.")
+    print_pause("\nNo matter which option you choose, you eventually come across a clearing in the woods.")
+    print_pause("In the center of the clearing, you see a small, weather-beaten house.")
     while True:
         choice = input("Will you (1) approach the house or (2) stay in the clearing? ")
-        if choice == "1":
-            print("No matter which option you choose, you eventually find yourself standing in front of the house.")
-            time.sleep(2)
-            print("You knock on the door, but no one answers.")
-            score += random.randint(10, 20) # Add a random score bonus between 10-20 points
-            break
-        elif choice == "2":
-            print("You stay in the clearing for a while, enjoying the peaceful surroundings.")
-            score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
-            break
+        if choice.isdigit():
+            choice = int(choice)
+            if choice == 1:
+                print_pause("\nNo matter which option you choose, you eventually find yourself standing in front of the house.")
+                print_pause("You knock on the door, but no one answers.")
+                score += random.randint(10, 20) # Add a random score bonus between 10-20 points
+                break
+            elif choice == 2:
+                print_pause("\nYou stay in the clearing for a while, enjoying the peaceful surroundings.")
+                score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
+                break
+            else:
+                print_pause("Invalid choice, please try again.")
         else:
-            print("Invalid choice, please try again.")
+            print_pause("Invalid input, please enter a number (1 or 2).")
 
 def climb_the_mountain_range():
     global score
-    print("You walk for what seems like hours, the scenery changing around you with every step.")
-    time.sleep(2)
-    print("The forest begins to thin out, and you can see the sun shining through the trees ahead.")
-    time.sleep(2)
-    print("As you emerge from the forest, you find yourself standing at the foot of a massive mountain range.")
-    time.sleep(2)
+    print_pause("\nYou walk for what seems like hours, the scenery changing around you with every step.")
+    print_pause("The forest begins to thin out, and you can see the sun shining through the trees ahead.")
+    print_pause("As you emerge from the forest, you find yourself standing at the foot of a massive mountain range.")
     while True:
         choice = input("Will you (1) climb the mountain range or (2) circle around the mountain range? ")
-        if choice == "1":
-            print("No matter which option you choose, you eventually find yourself standing at the top of the mountain range, gazing out over the breathtaking vista below.")
-            time.sleep(2)
-            print("You feel a sense of accomplishment and satisfaction at having overcome the challenge before you.")
-            score += random.randint(20, 30) # Add a random score bonus between 20-30 points
-            break
-        elif choice == "2":
-            print("You circle around the mountain range, taking in the stunning views along the way.")
-            score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
-            break
+        if choice.isdigit():
+            choice = int(choice)
+            if choice == 1:
+                print_pause("\nNo matter which option you choose, you eventually find yourself standing at the top of the mountain range, gazing out over the breathtaking vista below.")
+                print_pause("You feel a sense of accomplishment and satisfaction at having overcome the challenge before you.")
+                score += random.randint(20, 30) # Add a random score bonus between 20-30 points
+                break
+            elif choice == 2:
+                print_pause("\nYou circle around the mountain range, taking in the stunning views along the way.")
+score -= random.randint(5, 10) # Add a random score penalty between 5-10 points
+                break
+            else:
+                print_pause("Invalid choice, please try again.")
         else:
-            print("Invalid choice, please try again.")
+            print_pause("Invalid input, please enter a number (1 or 2).")
 
 def visit_the_village():
     global score
-    print("As you make your way down the other side of the mountain range, you come across a small village nestled in a valley.")
-    time.sleep(2)
+    print_pause("\nAs you make your way down the other side of the mountain range, you come across a small village nestled in a valley.")
     while True:
         choice = input("Will you (1) stay in the village or (2) continue on your journey? ")
-        if choice == "1":
-            print("You spend a few days in the village, getting to know the friendly locals and enjoying their hospitality.")
-            score += random.randint(30, 40) # Add a random score bonus between 30-40 points
-        
-        elif choice == "2":
-            print("You bid farewell to the villagers and set out on the road once again, your heart filled with a sense of purpose and adventure.")
-            score = random.randint(5, 10) # Add a random score penalty between 5-10 points
-            
-        else:
-            print("Invalid choice, please try again.")
-
-# Introduction
-print("Welcome to The Path Ahead!")
-
-# Player choices
-score = 0
-fork_in_the_road()
-while True:
-    choice = input("You suddenly come across asmall stream. Will you (1) follow the stream or (2) continue on the path? ")
-    if choice == "1":
-        follow_the_stream()
-        break
-    elif choice == "2":
-        print("You continue on the path, the scenery around you changing with each step.")
-        time.sleep(2)
-        break
-    else:
-        print("Invalid choice, please try again.")
-
-climb_the_mountain_range()
-
-visit_the_village()
-
-# Scoring consequences
-if score >= 100:
-    print("Congratulations! You completed the game with a high score!")
-elif score >= 50:
-    print("Well done! You completed the game with an average score.")
-else:
-    print("Sorry, you completed the game with a low score. Better luck next time!")
-
-# Ask if the player wants to play again
-while True:
-    play_again = input("Would you like to play again? (Y/N): ")
-    if play_again.upper() == "Y":
-        print("Great! Let's play again.")
-        score = 0 # Reset the score
-        fork_in_the_road()
-        while True:
-            choice = input("You suddenly come across a small stream. Will you (1) follow the stream or (2) continue on the path? ")
-            if choice == "1":
-                follow_the_stream()
+        if choice.isdigit():
+            choice = int(choice)
+            if choice == 1:
+                print_pause("\nYou spend a few days in the village, getting to know the friendly locals and enjoying their hospitality.")
+                score += random.randint(30, 40) # Add a random score bonus between 30-40 points
                 break
-            elif choice == "2":
-                print("You continue on the path, the scenery around you changing with each step.")
-                time.sleep(2)
+            elif choice == 2:
+                print_pause("\nYou bid farewellto the villagers and setoff on your journey once again.")
                 break
             else:
-                print("Invalid choice, please try again.")
-
-        climb_the_mountain_range()
-
-        visit_the_village()
-
-        if score >= 100:
-            print("Congratulations! You completed the game with a high score!")
-        elif score >= 50:
-            print("Well done! You completed the game with an average score.")
+                print_pause("Invalid choice, please try again.")
         else:
-            print("Sorry, you completed the game with a low score. Better luck next time!")
-    elif play_again.upper() == "N":
-        print("Thanks for playing! Goodbye.")
-        break
-    else:
-        print("Invalid choice, please try again.")
+            print_pause("Invalid input, please enter a number (1 or 2).")
+
+def play_game():
+    global score
+    score = 0
+    print_pause("Welcome to Adventure Game, where you will embark on an exciting journey full of twists and turns!")
+    print_pause("Your goal is to reach the end of the game with the highest score possible.")
+    fork_in_the_road()
+    follow_the_stream()
+    climb_the_mountain_range()
+    visit_the_village()
+    print_pause(f"\nCongratulations on completing the game with a final score of {score} points!")
+    print_pause("Thank you for playing Adventure Game!")
